@@ -1,9 +1,10 @@
 import ListGruop from "./ListGroup";
 
 function App() {
+  const cities = ["London", "Paris", "Istanbul", "Berlin"];
   return (
     <div>
-      <ListGruop />
+      <ListGruop items={cities} heading="Cities" />
     </div>
   );
 }

@@ -1,8 +1,12 @@
-import { MouseEvent } from "react";
+import { useState } from "react"; //MouseEvent,
 
-function ListGroup() {
-  const items = ["Paris", "London", "Tokyo"];
+interface Props {
+  items: string[];
+  heading: string;
+}
 
+function ListGroup({ items, heading }: Props) {
+  const [selectedIndex, setSelectedIndex] = useState<number | string>();
   const getMessage = (countryName: string) => {
     return (
       items.length === 0 && (
@@ -14,19 +18,22 @@ function ListGroup() {
     );
   };
 
-  const handleClick = (event: MouseEvent) => console.log(event.target.value);
+  //const handleClick = (event: MouseEvent) => console.log(event.target.value);
 
   return (
     <>
-      <h1>Testo</h1>
+      <h1>{heading}</h1>
       {getMessage("Franceq")}
       <ul className="list-group">
         {items.map((item, index) => (
           <li
             key={item}
-            value={item + index}
-            className="list-group-item"
-            onClick={handleClick}
+            className={
+              selectedIndex === index
+                ? "list-group-item active"
+                : "list-group-item"
+            }
+            onClick={() => setSelectedIndex(index)}
           >
             {item}
           </li>
