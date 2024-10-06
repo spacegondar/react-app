@@ -12,7 +12,7 @@ function ListGroup({ items, heading, onSelectItem }: Props) {
     return (
       items.length === 0 && (
         <>
-          <h1>Test</h1>
+          <h5>Default City</h5>
           <p>{countryName}</p>
         </>
       )
@@ -24,7 +24,7 @@ function ListGroup({ items, heading, onSelectItem }: Props) {
   return (
     <>
       <h1>{heading}</h1>
-      {getMessage("Franceq")}
+      {getMessage("Paris")}
       <ul className="list-group">
         {items.map((item, index) => (
           <li
